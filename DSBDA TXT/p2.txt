@@ -1,0 +1,26 @@
+import pandas as pd
+import seaborn as sns 
+import matplotlib.pyplot as plt
+
+
+df=pd.read_csv(r"C:\Users\Windows 10\OneDrive\Desktop\COLLEGE\TE Sppu Practicals\DSBDA\p2\Student performance (Polytechnic Institute of Portalegre).csv")
+df
+
+df.isnull().sum()
+
+df.describe()
+
+df.info()
+
+df.ndim
+
+min_value
+
+normalise=df["Age at enrollment"]-min_value/max_value-min_value
+
+plt.figure(figsize=(8,9))
+sns.boxplot(normalise)
+plt.xlabel("normalised")
+plt.title("boxplot of {}".format(colunm_name))
+plt.show()
+

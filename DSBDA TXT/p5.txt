@@ -1,0 +1,44 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+
+df=pd.read_csv(r"C:\Users\Windows 10\OneDrive\Desktop\COLLEGE\TE Sppu Practicals\DSBDA\p5\Employee.csv")
+df
+
+
+df["Age"].describe()
+
+
+df["Age"].mean()
+
+
+df["Age"].max()
+
+
+df["Age"].min()
+
+
+df["Age"].median()
+
+
+df["Age"].std()
+
+
+df.groupby(df["Age"]).describe()
+
+
+df.groupby("Age")["PaymentTier"].describe()
+
+
+count=df["City"].value_counts()
+count
+
+
+sns.histplot(df["Age"],bins=20,kde=True)
+plt.title("Age distribution")
+plt.xlabel("Age")
+plt.ylabel("Frequency")
+plt.show()
+
+

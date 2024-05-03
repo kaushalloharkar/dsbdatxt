@@ -1,0 +1,44 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error,mean_absolute_error,r2_score
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+
+
+df=pd.read_csv(r"C:\Users\Windows 10\OneDrive\Desktop\COLLEGE\TE Sppu Practicals\DSBDA\p7\BostonHousing.csv")
+df
+
+
+df=df.dropna(axis=1)
+df=df.dropna(axis=0)
+
+
+df
+
+
+x=df[["crim","indus"]]
+y=df[["medv"]]
+
+
+xtrain,xtest,ytrain,ytest=train_test_split(x,y,test_size=0.2,random_state=0)
+
+
+model=LinearRegression()
+
+
+model.fit(xtrain,ytrain)
+
+
+y_pred=model.predict(xtest)
+
+
+mse=mean_squared_error(ytest,y_pred)
+mse
+
+
+re=r2_score(ytest,y_pred)
+re
+
+

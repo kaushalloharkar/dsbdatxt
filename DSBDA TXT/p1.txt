@@ -1,0 +1,30 @@
+import pandas as pd
+import seaborn as sns 
+import matplotlib.pyplot as plt
+
+df.isnull().sum()
+df.describe()
+df["LeaveOrNot"].isnull()
+df.info()
+df.dtypes
+df.ndim
+df["Age"].dtype
+
+df["Age"]=df["Age"].astype(float)
+df["Age"].dtype
+
+df["Gender"].replace({"Male":1,"Female":0},inplace=True)
+df
+
+column_name="Age"
+zscore=(df["Age"]-df["Age"].mean())/df["Age"].std()
+
+plt.figure(figsize=(8,6))
+sns.boxplot(zscore)
+plt.title("boxplot of z score for {}".format(column_name))
+plt.xlabel("zscore")
+plt.show()
+
+
+
+

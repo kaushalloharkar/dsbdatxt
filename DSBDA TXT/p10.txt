@@ -1,0 +1,48 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix,precision_score,r2_score,recall_score,accuracy_score
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+
+data=({"STUDY HOURS":[29,15,33,48,39],"PASS/FAIL":[0,0,1,1,1]})
+
+
+df=pd.DataFrame(data)
+df
+
+
+x=df[["STUDY HOURS"]]
+y=df["PASS/FAIL"]
+
+
+model=LogisticRegression()
+
+
+model.fit(x,y)
+
+
+y_pred=model.predict([[25],[42]])
+
+
+
+print(y_pred)
+
+
+y_pred=model.predict(x)
+acc=accuracy_score(y,y_pred)
+pre=precision_score(y,y_pred)
+rror_rate= (1) -acc
+recall=recall_score(y,y_pred)
+print(confusion_matrix.__doc__)
+
+
+
+confusion_matrix(y, y_pred)
+
+
+tn, fp, fn, tp = confusion_matrix([0, 1, 0, 1], [1, 1, 1, 0]).ravel()
+
+
+print(tn, fp, fn, tp)

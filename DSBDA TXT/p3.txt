@@ -1,0 +1,30 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+
+df=pd.read_csv(r"C:\Users\Windows 10\OneDrive\Desktop\COLLEGE\TE Sppu Practicals\DSBDA\p2\SP2.csv")
+df
+
+df.isnull().sum()
+
+df.fillna(0,inplace=True)
+
+mean=df["WT"].mean()
+df["WT"]=df["WT"].fillna(mean)
+df
+
+df.dropna()
+
+from scipy import stats
+z_score=stats.zscore(df.select_dtypes (include='number'))
+threshold=0
+outlier=df[(z_score>threshold).any(axis=1)]
+df=df[(z_score<=threshold).all(axis=1)]
+
+df
+
+bins = [0, 30, 50, 100]
+labels = [0-18, 19-20, 21-30]
+df['AVG'] = pd.cut(df['AVG'], bins=bins, labels=labels)
+df['AVG']
